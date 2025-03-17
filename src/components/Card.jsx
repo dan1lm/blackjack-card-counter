@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Card.css'
-import cardBackImage from '../assets/card-back-1.png';
+import cardBackImage from '../assets/card-back-2.png';
 
 const Card = ({card, isFlipped}) => {
 

@@ -3,13 +3,15 @@ import { useState } from 'react'
 import './App.css'
 import Card from './components/Card'
 
-function App() {
+import TestCard from './TestCard.jsx';
 
+function App() {
   return (
-    <>
-    <Card />
-    </>
-  )
+    <div className="container">
+      <h1 className="title">Card Test Page</h1>
+      <TestCard />
+    </div>
+  );
 }
 
 export default App
