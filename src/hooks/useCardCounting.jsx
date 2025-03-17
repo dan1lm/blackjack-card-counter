@@ -35,12 +35,22 @@ const useCardCounting = (deckSize = 52) => {
         setDeck(newDeck);
     }, [deckSize]);
 
+        
+    const getCardValue = (card) => {                    // Implementation of Hi-Lo strategy
+        if (!card) return 0;                            // 2-6 => +1    7-9 => 0    10-A => -1
 
+        const { rank } = card;
+        
+        if (['2', '3', '4', '5', '6'].includes(rank)) {
+          return 1;  // Low cards: +1
+        } else if (['7', '8', '9'].includes(rank)) {
+          return 0;  // Neutral cards: 0
+        } else {
+          return -1; // High cards (10, J, Q, K, A): -1
+        }
+      };
 
-
-
-
-    })
+    
 
     return;
 }
