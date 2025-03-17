@@ -22,6 +22,21 @@ const useCardCounting = (deckSize = 52) => {
             }
         }
 
+        if (newDeck.length > deckSize) {
+            newDeck = newDeck.slice(0, deckSize);
+        }
+
+        
+        for (let i = newDeck.length - 1; i > 0; i--) {              // Shuffle the deck
+            const j = Math.floor(Math.random() * (i + 1));
+            [newDeck[i], newDeck[j]] = [newDeck[j], newDeck[i]];
+        }
+
+        setDeck(newDeck);
+    }, [deckSize]);
+
+
+
 
 
 
