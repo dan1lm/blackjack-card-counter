@@ -47,8 +47,31 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
 
         const now = Date.now();
         const timeTaken = (now - lastCardTime) / 1000;
-        setCardTimes([...cardTimes, timeTaken])
-    }
+        setCardTimes([...cardTimes, timeTaken]);
+        setLastCardTime(now);
+
+        if (userValue === cardValue){
+            setFeedback('Correct!');
+            setCorrectCount(correctCount+1);
+        }
+        else {
+            setFeedback(`Incorrect. The count for ${currentCard.rank} of ${currentCard.suit} is ${currentValue}`);
+            setIncorrectCount(incorrectCount + 1);
+        }
+
+        // updating running count
+        setCurrentCount(getCorrectCount(currentCardIndex));
+
+        // next card
+        setUserInput('');
+        
+        if (mode === 'self-paced') {
+            setTimeout(() => {
+                nextCard();
+            }, 1000);
+        }
+    };
+    
 
     return;
 }
