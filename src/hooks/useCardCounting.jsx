@@ -50,8 +50,20 @@ const useCardCounting = (deckSize = 52) => {
         }
       };
 
-    
+      const getCorrectCount = (upToIndex) => {
+        let count = 0;
+        for (let i = 0; i < upToIndex; i++){
+            if (i < deck.length){
+                count += getCardValue(deck[i]);
+            }
+        }
+        return count;
+      };
 
-    return;
+    return {
+        deck,
+        getCardValue,
+        getCorrectCount
+    };
 }
-export default useCardCounting
+export default useCardCounting;
