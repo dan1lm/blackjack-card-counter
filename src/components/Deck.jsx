@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
-import Card from './Card';
-import useCardCounting from '..hooks/useCardCounting';
+import Card from './Card.jsx';
+import useCardCounting from '..hooks/useCardCounting.jsx';
 
 const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => {
     const [currentCount, setCurrentCount] = useState(0);
@@ -13,7 +13,7 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
     const [startTime, setStartTime] = useState(null);
     const [cardTimes, setCardTimes] = useState([]);
     const [lastCardTime, setLastCardTime] = useState(null);
-    
+
     const inputRef = useRef(null);
     const intervalRef = useRef(null);
 
@@ -40,7 +40,15 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
         };
     }, []);
 
+    const checkAnswer = () => {
+        const currentCard = deck[currentCardIndex];
+        const cardValue = getCardValue(currentCard);
+        const userValue = parseInt(userInput);
 
+        const now = Date.now();
+        const timeTaken = (now - lastCardTime) / 1000;
+        setCardTimes([...cardTimes, timeTaken])
+    }
 
     return;
 }
