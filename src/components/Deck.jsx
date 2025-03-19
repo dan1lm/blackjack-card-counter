@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
 import Card from './Card.jsx';
-import useCardCounting from '..hooks/useCardCounting.jsx';
+import useCardCounting from '../hooks/useCardCounting.jsx';
 
 const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => {
     const [currentCount, setCurrentCount] = useState(0);
@@ -107,8 +107,54 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
             checkAnswer();
         }
     };
-    
-    return;
+
+    return (
+        <div className="deck-container">
+          <div className="deck-stats">
+            <div className="count-display">Current Count: <span className="count-value">{currentCount}</span></div>
+            <div className="card-progress">Card: {currentCardIndex + 1} / {deck.length}</div>
+          </div>
+          
+          <div className="card-display">
+            <Card card={deck[currentCardIndex]} isFlipped={isFlipped} />
+          </div>
+          
+          {mode === 'self-paced' && (
+            <div className="input-container">
+              <div className="input-group">
+                <input
+                  type="text"
+                  ref={inputRef}
+                  value={userInput}
+                  onChange={(e) => setUserInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="count-input"
+                  placeholder="Enter count (+1, 0, -1)"
+                />
+                <button 
+                  onClick={checkAnswer}
+                  className="submit-button"
+                >
+                  Submit
+                </button>
+              </div>
+              
+              {feedback && (
+                <div className={feedback.startsWith('Correct') ? 'feedback correct' : 'feedback incorrect'}>
+                  {feedback}
+                </div>
+              )}
+            </div>
+          )}
+          
+          <button 
+            onClick={stopSimulation} 
+            className="stop-button"
+          >
+            Stop Simulation
+          </button>
+        </div>
+      );
 }
 
 export default Deck

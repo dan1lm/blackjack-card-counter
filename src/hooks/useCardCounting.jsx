@@ -65,5 +65,5 @@ const useCardCounting = (deckSize = 52) => {
         getCardValue,
         getCorrectCount
     };
-}
+};
 export default useCardCounting;
