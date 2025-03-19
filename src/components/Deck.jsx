@@ -71,8 +71,43 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
             }, 1000);
         }
     };
-    
 
+    const nextCard = () => {
+        if (currentCardIndex >= deck.length - 1) {
+            finishSimulation();
+            return;
+        }
+
+        setCurrentCardIndex(currentCardIndex + 1);
+        setFeedback('');
+        if(inputRef.current) {
+            inputRef.current.focus();
+        }
+    };
+
+    const finishSimulation = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+
+        const totalTime = (Date.now() - startTime) / 1000;
+        const averageTime = totalTime / (currentCardIndex + 1);
+
+        endSimulation({
+            correctCount,
+            incorrectCount,
+            totalTime,
+            averageTime,
+            cardTimes,
+        });
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            checkAnswer();
+        }
+    };
+    
     return;
 }
 
