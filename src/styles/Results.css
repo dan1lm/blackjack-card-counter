@@ -1,0 +1,101 @@
+.results-panel {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .results-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-card {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #1e88e5;
+  }
+  
+  .stat-details {
+    font-size: 0.875rem;
+    color: #757575;
+    margin-top: 0.25rem;
+  }
+  
+  .chart-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .chart-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .time-chart {
+    height: 160px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-bars {
+    position: relative;
+    height: 100%;
+  }
+  
+  .time-bar {
+    position: absolute;
+    bottom: 0;
+    background-color: #1e88e5;
+    width: 8px;
+    border-radius: 2px 2px 0 0;
+  }
+  
+  .time-bar:hover {
+    background-color: #1565c0;
+  }
+  
+  .action-container {
+    text-align: center;
+  }
+  
+  .try-again-button {
+    background-color: #43a047;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .try-again-button:hover {
+    background-color: #2e7d32;
+  }
