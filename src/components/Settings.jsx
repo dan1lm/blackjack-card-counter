@@ -60,7 +60,7 @@ const Settings = ({
         <input
           type="range"
           min="10"
-          max="312" // 6 decks
+          max="312" 
           step="1"
           value={deckSize}
           onChange={(e) => setDeckSize(parseInt(e.target.value))}
@@ -73,25 +73,25 @@ const Settings = ({
         <div className="deck-shortcuts">
           <button
             className="deck-preset-button"
-            onClick={() => setDeckSize(52)} // 1 deck
+            onClick={() => setDeckSize(52)} 
           >
             1 Deck
           </button>
           <button
             className="deck-preset-button"
-            onClick={() => setDeckSize(104)} // 2 decks
+            onClick={() => setDeckSize(104)} 
           >
             2 Decks
           </button>
           <button
             className="deck-preset-button"
-            onClick={() => setDeckSize(156)} // 3 decks
+            onClick={() => setDeckSize(156)} 
           >
             3 Decks
           </button>
           <button
             className="deck-preset-button"
-            onClick={() => setDeckSize(312)} // 6 decks
+            onClick={() => setDeckSize(312)} 
           >
             6 Decks
           </button>
