@@ -20,24 +20,36 @@ const Deck = ( {mode, targetRate, deckSize, stopSimulation, endSimulation} ) => 
 
     const { deck, getCardValue, getCorrectCount } = useCardCounting(deckSize);
 
-    useEffect( () => {
-        setStartTime(Date.now());
-        setLastCardTime(Date.now());
-        setIsFlipped(true);
-
-        if (mode === 'timed') {
-            intervalRef.current = setInterval( () => {
-                nextCard();
-            }, targetRate*1000);
+    useEffect(() => {
+      setStartTime(Date.now());
+      setLastCardTime(Date.now());
+      setIsFlipped(true);  // Start with the first card visible
+    
+      if (mode === 'timed') {
+        intervalRef.current = setInterval(() => {
+          if (currentCardIndex >= deck.length - 1) {
+            finishSimulation();
+            return;
+          }
+          
+          setCurrentCardIndex(prevIndex => prevIndex + 1);
+          setCurrentCount(getCorrectCount(currentCardIndex)); 
+          
+          const now = Date.now();
+          const timeTaken = (now - lastCardTime) / 1000;
+          setCardTimes(prevTimes => [...prevTimes, timeTaken]);
+          setLastCardTime(now);
+          
+        }, targetRate * 1000);
+      }
+    
+      inputRef.current?.focus();
+    
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
         }
-
-        inputRef.current?.focus();
-
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-            }
-        };
+      };
     }, []);
 
     const checkAnswer = () => {

@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #3a5a80;
+  --primary-light: #98c1d9;
+  --primary-dark: #293241;
+  --accent-color: #ee6c4d;
+  --neutral-color: #e0fbfc;
+  --text-color: #293241;
+  --background-color: #f7f7f7;
+  --card-bg: #ffffff;
+  --success-color: #42b883;
+  --error-color: #f87171;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.app-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-dark);
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.5rem;
+  min-height: 75vh;
+}
+
+.left-panel {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.right-panel {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 500px;
+}
+
+.welcome-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  height: 100%;
+}
+
+.welcome-panel h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.welcome-panel p {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+}
+
+.card-examples {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card-example {
+  width: 80px;
+  height: 120px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.card-example:hover {
+  transform: translateY(-5px);
+}
+
+.card-example span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-example small {
+  margin-top: 0.5rem;
+}
+
+.card-example.low {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.card-example.neutral {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+.card-example.high {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .left-panel, .right-panel {
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-import {useState, useEffet} from 'react';
+import {useState, useEffect} from 'react';
 
 const useCardCounting = (deckSize = 52) => {
     const [deck, setDeck] = useState([]);
