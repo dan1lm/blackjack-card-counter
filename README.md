@@ -1,1 +1,1 @@
-hi-lo practice for those who don't have a deck of cards at home.
+**HiLoMaster** -- hi-lo blackjack counting strategy practice

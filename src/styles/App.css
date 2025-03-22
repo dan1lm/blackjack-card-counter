@@ -127,6 +127,7 @@ body {
   color: #842029;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .app-layout {
     grid-template-columns: 1fr;

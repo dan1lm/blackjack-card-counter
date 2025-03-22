@@ -55,6 +55,7 @@ function App() {
           />
         </div>
         
+        
         <div className="right-panel">
           {isRunning && (
             <Deck 
@@ -75,7 +76,7 @@ function App() {
           
           {!isRunning && !showResults && (
             <div className="welcome-panel">
-              <h2>Welcome to Card Counting Practice</h2>
+              <h2>Hi-Lo Practice</h2>
               <p>Configure your settings on the left and click "Start Simulation" to begin.</p>
               <div className="card-examples">
                 <div className="card-example low">

@@ -4,59 +4,100 @@ import '../styles/Results.css';
 const Results = ({ results, resetSimulation }) => {
     const calculateAccuracy = () => {
         const total = results.correctCount + results.incorrectCount;
-        return total > 0 ? ((results.correctCount  /total) * 100).toFixed(1) : 0;
+        return total > 0 ? ((results.correctCount / total) * 100).toFixed(1) : 0;
     };
+    
+    const getGrade = () => {
+        const accuracy = parseFloat(calculateAccuracy());
+        if (accuracy >= 95) return { grade: 'A', description: 'Excellent' };
+        if (accuracy >= 85) return { grade: 'B', description: 'Good' };
+        if (accuracy >= 75) return { grade: 'C', description: 'Average' };
+        if (accuracy >= 65) return { grade: 'D', description: 'Fair' };
+        return { grade: 'F', description: 'Needs Practice' };
+    };
+    
+    const gradeInfo = getGrade();
 
     return (
-        <div className="results-panel">
-          <h2 className="results-title">Simulation Results</h2>
-          
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h3 className="stat-title">Accuracy</h3>
-              <div className="stat-value">{calculateAccuracy()}%</div>
-              <div className="stat-details">
-                {results.correctCount} correct / {results.correctCount + results.incorrectCount} total
-              </div>
+        <div className="results-container">
+            <div className="results-header">
+                <h2>Simulation Results</h2>
+                {results.reason && (
+                    <div className="completion-reason">
+                        {results.reason}
+                    </div>
+                )}
             </div>
             
-            <div className="stat-card">
-              <h3 className="stat-title">Timing</h3>
-              <div className="stat-value">
-                {results.averageTime.toFixed(2)} sec
-              </div>
-              <div className="stat-details">
-                Average time per card
-              </div>
-            </div>
-          </div>
-          
-          {results.cardTimes && results.cardTimes.length > 0 && (
-            <div className="chart-container">
-              <h3 className="chart-title">Time Per Card</h3>
-              <div className="time-chart">
-                <div className="chart-bars">
-                  {results.cardTimes.map((time, index) => (
-                    <div  
-                    key={index} 
-                    className="time-bar"
-                    style={{
-                        height: `${Math.min(time / 5 * 100, 100)}%`,
-                        left: `${index * (100 / results.cardTimes.length)}%`,
-                      }}
-                      title={`Card ${index + 1}: ${time.toFixed(2)}s`}
-                    >
-                    </div>
-                  ))}
+            <div className="grade-section">
+                <div className="grade-display">
+                    <div className="grade">{gradeInfo.grade}</div>
+                    <div className="grade-label">{gradeInfo.description}</div>
                 </div>
-              </div>
+                <div className="stats-summary">
+                    <div className="stat">
+                        <div className="stat-value">{calculateAccuracy()}%</div>
+                        <div className="stat-label">Accuracy</div>
+                    </div>
+                    <div className="stat">
+                        <div className="stat-value">{isNaN(results.averageTime) ? "0.0" : results.averageTime.toFixed(1)}s</div>
+                        <div className="stat-label">Avg. Time per Card</div>
+                    </div>
+                </div>
             </div>
-          )}
-          
-          <div className="action-container">
-            <button onClick={resetSimulation} className="try-again-button"> Try Again </button>
-          </div>
+            
+            <div className="stats-details">
+                <div className="stats-row">
+                    <div className="stat-box">
+                        <div className="stat-label">Correct Counts</div>
+                        <div className="stat-value correct">{results.correctCount}</div>
+                    </div>
+                    <div className="stat-box">
+                        <div className="stat-label">Incorrect Counts</div>
+                        <div className="stat-value incorrect">{results.incorrectCount}</div>
+                    </div>
+                </div>
+                <div className="stats-row">
+                    <div className="stat-box">
+                        <div className="stat-label">Total Cards</div>
+                        <div className="stat-value">{results.cardsViewed || (results.correctCount + results.incorrectCount)}</div>
+                    </div>
+                    <div className="stat-box">
+                        <div className="stat-label">Total Time</div>
+                        <div className="stat-value">{results.totalTime.toFixed(1)}s</div>
+                    </div>
+                </div>
+            </div>
+            
+            {results.cardTimes && results.cardTimes.length > 0 && (
+                <div className="time-chart-container">
+                    <h3>Response Time per Card</h3>
+                    <div className="time-chart">
+                        {results.cardTimes.map((time, index) => (
+                            <div 
+                                key={index}
+                                className="time-bar"
+                                style={{
+                                    height: `${Math.min(time / 5 * 100, 100)}%`,
+                                }}
+                                title={`Card ${index + 1}: ${time.toFixed(1)}s`}
+                            />
+                        ))}
+                    </div>
+                    <div className="chart-labels">
+                        <span className="chart-label">Fast</span>
+                        <span className="chart-label">Slow</span>
+                    </div>
+                </div>
+            )}
+            
+            <div className="actions">
+                <button onClick={resetSimulation} className="try-again-button">
+                    Try Again
+                </button>
+            </div>
         </div>
-      );
+    );
 };
+
 export default Results;
