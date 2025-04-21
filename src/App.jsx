@@ -39,7 +39,6 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="app-title">Blackjack Card Counting Simulator</h1>
       
       <div className="app-layout">
         <div className="left-panel">
@@ -55,7 +54,7 @@ function App() {
           />
         </div>
         
-        
+
         <div className="right-panel">
           {isRunning && (
             <Deck 
@@ -76,7 +75,7 @@ function App() {
           
           {!isRunning && !showResults && (
             <div className="welcome-panel">
-              <h2>Hi-Lo Practice</h2>
+              <h2>Practice your counting skills!</h2>
               <p>Configure your settings on the left and click "Start Simulation" to begin.</p>
               <div className="card-examples">
                 <div className="card-example low">
@@ -96,6 +95,16 @@ function App() {
           )}
         </div>
       </div>
+
+      <footer className="app-footer">
+        <div className="footer-content">
+          Made by <a href="https://www.danilmerinov.com" target="_blank" rel="noopener noreferrer">Danil Merinov</a>
+          <span className="footer-divider">|</span>
+          <a href="https://github.com/dan1lm/blackjack-card-counter" target="_blank" rel="noopener noreferrer">
+            View on GitHub
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }

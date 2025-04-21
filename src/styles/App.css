@@ -25,6 +25,74 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 0.875rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footer-divider {
+  margin: 0 0.5rem;
+  color: var(--primary-light);
+}
+
+.app-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.app-footer a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+
+.app-layout {
+  margin-bottom: 10px;
+}
+
+
+.app-footer {
+  border-top: none; 
+  margin-top: 0; 
+  padding-top: 10px; 
+}
+
+
+.right-panel, 
+.welcome-panel,
+.results-container {
+  margin-bottom: 0; 
+  padding-bottom: 10px; 
+}
+
+.time-chart, 
+.chart-container
+{
+  height: 120px !important; 
+}
+
+.response-time-chart,
+.card-times-chart {
+  height: 120px !important; 
 }
 
 .app-title {

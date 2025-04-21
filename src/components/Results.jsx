@@ -76,17 +76,19 @@ const Results = ({ results, resetSimulation }) => {
                         {results.cardTimes.map((time, index) => (
                             <div 
                                 key={index}
-                                className="time-bar"
-                                style={{
-                                    height: `${Math.min(time / 5 * 100, 100)}%`,
-                                }}
-                                title={`Card ${index + 1}: ${time.toFixed(1)}s`}
-                            />
+                                className="time-bar-container"
+                            >
+                                <div 
+                                    className="time-bar"
+                                    style={{
+                                        height: `${Math.min(time / 5 * 100, 100)}%`,
+                                    }}
+                                >
+                                    <div className="time-tooltip">{time.toFixed(1)}s</div>
+                                </div>
+                                <div className="card-number">{index + 1}</div>
+                            </div>
                         ))}
-                    </div>
-                    <div className="chart-labels">
-                        <span className="chart-label">Fast</span>
-                        <span className="chart-label">Slow</span>
                     </div>
                 </div>
             )}

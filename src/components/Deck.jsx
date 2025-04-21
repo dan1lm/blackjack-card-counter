@@ -195,9 +195,11 @@ const Deck = ({ mode, targetRate, deckSize, stopSimulation, endSimulation }) => 
                     <span className="timer-value">{formatTime(elapsedTime)}s</span>
                 </div>
                 
-                <div className={`countdown-timer ${timeLeft < targetRate * 0.3 && mode === 'timed' ? 'warning' : ''}`}>
-                    <span className="timer-label">{mode === 'timed' ? 'Time Left:' : ' '}</span>
-                    <span className="timer-value">{mode === 'timed' ? `${formatTime(timeLeft)}s` : ' '}</span>
+                <div className="countdown-timer">
+                    <span className="timer-label">Time Left:</span>
+                    <span className={`timer-value ${timeLeft < targetRate * 0.3 && mode === 'timed' ? 'warning' : ''}`}>
+                        {mode === 'timed' ? `${formatTime(timeLeft)}s` : '--'}
+                    </span>
                 </div>
                 
                 <div className="card-progress">

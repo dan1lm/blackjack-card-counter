@@ -37,10 +37,10 @@ const Settings = ({
       
       <div className="setting-group rate-setting-group">
         <label className="setting-label">
-          {mode === 'timed' ? `Time per card: ${targetRate}s` : ' '}
+          Time per card: {mode === 'timed' ? `${targetRate}s` : ''}
         </label>
-        {mode === 'timed' ? (
-          <div>
+        <div className="rate-control-container">
+          {mode === 'timed' ? (
             <input
               type="range"
               min="1"
@@ -51,14 +51,14 @@ const Settings = ({
               className="range-slider"
               disabled={isRunning}
             />
-            <div className="range-labels">
-              <span>Fast (1s)</span>
-              <span>Slow (5s)</span>
-            </div>
+          ) : (
+            <div className="placeholder-slider"></div>
+          )}
+          <div className="range-labels">
+            <span>Fast (1s)</span>
+            <span>Slow (5s)</span>
           </div>
-        ) : (
-          <div className="placeholder-height"></div>
-        )}
+        </div>
       </div>
       
       <div className="setting-group">
