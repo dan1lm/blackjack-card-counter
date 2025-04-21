@@ -1,1 +1,3 @@
-**HiLoMaster** -- hi-lo blackjack counting strategy practice
+**HiLoMaster**
+
+[practice your card counting skills!](https://blackjack-card-counter-seven.vercel.app/)
