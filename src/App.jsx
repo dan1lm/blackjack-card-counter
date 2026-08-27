@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Deck from './components/Deck';
-import Settings from './components/Settings';
-import Results from './components/Results';
+import PracticeStage from './components/PracticeStage';
+import SettingsPanel from './components/SettingsPanel';
+import ResultsView from './components/ResultsView';
 import './styles/App.css';
 
 function App() {
@@ -10,21 +10,11 @@ function App() {
   const [deckSize, setDeckSize] = useState(52);
   const [isRunning, setIsRunning] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [results, setResults] = useState({
-    correctCount: 0,
-    incorrectCount: 0,
-    totalTime: 0,
-    averageTime: 0,
-    cardTimes: [],
-  });
+  const [results, setResults] = useState(null);
 
   const startSimulation = () => {
     setIsRunning(true);
     setShowResults(false);
-  };
-
-  const stopSimulation = () => {
-    setIsRunning(false);
   };
 
   const endSimulation = (simulationResults) => {
@@ -38,11 +28,15 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      
-      <div className="app-layout">
-        <div className="left-panel">
-          <Settings 
+    <div className="app">
+      <header className="app__header">
+        <span className="app__wordmark">Hi&middot;Lo <span className="app__wordmark-accent">Master</span></span>
+      </header>
+
+      <main className="app__layout">
+        <details className="app__settings" open>
+          <summary className="app__settings-summary">Session Settings</summary>
+          <SettingsPanel
             mode={mode}
             setMode={setMode}
             targetRate={targetRate}
@@ -52,58 +46,41 @@ function App() {
             startSimulation={startSimulation}
             isRunning={isRunning}
           />
-        </div>
-        
+        </details>
 
-        <div className="right-panel">
+        <div className="app__rule" aria-hidden="true" />
+
+        <div className="app__stage">
           {isRunning && (
-            <Deck 
+            <PracticeStage
               mode={mode}
               targetRate={targetRate}
               deckSize={deckSize}
-              stopSimulation={stopSimulation}
               endSimulation={endSimulation}
             />
           )}
-          
-          {showResults && (
-            <Results 
-              results={results} 
-              resetSimulation={resetSimulation}
-            />
+
+          {showResults && results && (
+            <ResultsView results={results} resetSimulation={resetSimulation} />
           )}
-          
+
           {!isRunning && !showResults && (
-            <div className="welcome-panel">
-              <h2>Practice your counting skills!</h2>
-              <p>Configure your settings on the left and click "Start Simulation" to begin.</p>
-              <div className="card-examples">
-                <div className="card-example low">
-                  <span>+1</span>
-                  <small>2-6</small>
-                </div>
-                <div className="card-example neutral">
-                  <span>0</span>
-                  <small>7-9</small>
-                </div>
-                <div className="card-example high">
-                  <span>-1</span>
-                  <small>10-A</small>
-                </div>
-              </div>
+            <div className="app__welcome">
+              <h2 className="app__welcome-title">Practice your counting skills</h2>
+              <p className="app__welcome-copy">
+                Configure your session on the left and begin when you're ready.
+              </p>
             </div>
           )}
         </div>
-      </div>
+      </main>
 
-      <footer className="app-footer">
-        <div className="footer-content">
-          Made by <a href="https://www.danilmerinov.com" target="_blank" rel="noopener noreferrer">Danil Merinov</a>
-          <span className="footer-divider">|</span>
-          <a href="https://github.com/dan1lm/blackjack-card-counter" target="_blank" rel="noopener noreferrer">
-            View on GitHub
-          </a>
-        </div>
+      <footer className="app__footer">
+        Made by <a href="https://www.danilmerinov.com" target="_blank" rel="noopener noreferrer">Danil Merinov</a>
+        <span className="app__footer-divider">&middot;</span>
+        <a href="https://github.com/dan1lm/blackjack-card-counter" target="_blank" rel="noopener noreferrer">
+          View on GitHub
+        </a>
       </footer>
     </div>
   );

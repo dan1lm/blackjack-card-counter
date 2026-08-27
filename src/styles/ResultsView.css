@@ -1,0 +1,108 @@
+.results-view {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.results-view__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-5);
+}
+
+.results-view__grade {
+  font-family: var(--font-display);
+  font-size: 56px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.results-view__description {
+  font-size: 15px;
+}
+
+.results-view__reason {
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: var(--space-1);
+}
+
+.results-view__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4) var(--space-6);
+}
+
+.results-view__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.results-view__stat-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.results-view__stat-value {
+  font-family: var(--font-mono);
+  font-size: 20px;
+}
+
+.results-view__label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: var(--space-3);
+}
+
+.results-view__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 80px;
+  border-bottom: 1px solid var(--line);
+}
+
+.results-view__bar-wrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.results-view__bar {
+  width: 100%;
+  background: var(--gold);
+  opacity: 0.7;
+  min-height: 2px;
+  transition: opacity var(--transition);
+}
+
+.results-view__bar-wrap:hover .results-view__bar {
+  opacity: 1;
+}
+
+.results-view__cta {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: var(--space-3) var(--space-5);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition);
+}
+
+.results-view__cta:hover {
+  background: var(--gold);
+  color: var(--felt-950);
+}

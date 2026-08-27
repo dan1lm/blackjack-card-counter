@@ -1,0 +1,74 @@
+.playing-card {
+  width: clamp(120px, 22vw, 170px);
+  aspect-ratio: 5 / 7;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-3);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: box-shadow var(--transition), transform var(--transition);
+  animation: card-reveal 220ms ease-out;
+}
+
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.playing-card--front {
+  background: linear-gradient(160deg, #fdfbf4, #eee7d3);
+  font-family: var(--font-display);
+}
+
+.playing-card--red {
+  color: var(--red);
+}
+
+.playing-card--black {
+  color: #16211a;
+}
+
+.playing-card__rank {
+  font-size: clamp(20px, 4vw, 30px);
+  line-height: 1;
+}
+
+.playing-card__rank--bottom {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.playing-card__suit {
+  font-size: clamp(32px, 6vw, 48px);
+  align-self: center;
+}
+
+.playing-card--correct {
+  box-shadow: 0 0 0 3px var(--gold), 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.playing-card--incorrect {
+  box-shadow: 0 0 0 3px var(--red), 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.playing-card--back {
+  width: clamp(120px, 22vw, 170px);
+  aspect-ratio: 5 / 7;
+  border-radius: var(--radius);
+  background: var(--felt-900);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playing-card__back-pattern {
+  width: 70%;
+  height: 70%;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  opacity: 0.5;
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(201, 168, 76, 0.15) 8px, rgba(201, 168, 76, 0.15) 9px);
+}

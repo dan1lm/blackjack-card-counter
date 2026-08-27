@@ -1,0 +1,115 @@
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-panel__field {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.settings-panel__field:first-child {
+  padding-top: 0;
+}
+
+.settings-panel__label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: var(--space-3);
+}
+
+.settings-panel__value {
+  font-family: var(--font-mono);
+  color: var(--gold);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.settings-panel__modes {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.settings-panel__mode {
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--ink-dim);
+  font-size: 15px;
+  padding-bottom: var(--space-1);
+}
+
+.settings-panel__mode--active {
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+}
+
+.settings-panel__mode:disabled {
+  cursor: not-allowed;
+}
+
+.settings-panel__slider {
+  width: 100%;
+  accent-color: var(--gold);
+  background: transparent;
+}
+
+.settings-panel__presets {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.settings-panel__presets button {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-size: 11px;
+  padding: var(--space-2) var(--space-3);
+}
+
+.settings-panel__presets button:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.settings-panel__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+.settings-panel__legend-item--positive {
+  color: var(--gold);
+}
+
+.settings-panel__legend-item--negative {
+  color: var(--red);
+}
+
+.settings-panel__cta {
+  margin-top: var(--space-6);
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: var(--space-3) var(--space-5);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition);
+}
+
+.settings-panel__cta:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.settings-panel__cta:not(:disabled):hover {
+  background: var(--gold);
+  color: var(--felt-950);
+}
