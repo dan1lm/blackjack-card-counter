@@ -1,0 +1,25 @@
+:root {
+  --felt-950: #0a0f0c;
+  --felt-900: #0d1310;
+  --ink: #e8e4d8;
+  --ink-dim: #8a9389;
+  --gold: #c9a84c;
+  --red: #8a1c1c;
+  --line: rgba(232, 228, 216, 0.14);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --radius: 8px;
+  --transition: 200ms ease-out;
+}

@@ -1,0 +1,129 @@
+.practice-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.practice-stage__meta {
+  display: flex;
+  gap: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-dim);
+}
+
+.practice-stage__meta-item--warning {
+  color: var(--red);
+}
+
+.practice-stage__progress {
+  width: 100%;
+  max-width: 300px;
+  height: 1px;
+  background: var(--line);
+}
+
+.practice-stage__progress-fill {
+  height: 100%;
+  background: var(--gold);
+  transition: width 100ms linear;
+}
+
+.practice-stage__card {
+  margin: var(--space-4) 0;
+}
+
+.practice-stage__input-help {
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+.practice-stage__input-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.practice-stage__input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  text-align: center;
+  width: 100px;
+  padding: var(--space-2) 0;
+  transition: border-color var(--transition);
+}
+
+.practice-stage__input:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.practice-stage__submit {
+  background: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0 var(--space-4);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition);
+}
+
+.practice-stage__submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.practice-stage__submit:not(:disabled):hover {
+  background: var(--gold);
+  color: var(--felt-950);
+}
+
+.practice-stage__feedback {
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+.practice-stage__feedback--correct {
+  color: var(--gold);
+}
+
+.practice-stage__feedback--incorrect {
+  color: var(--red);
+}
+
+.practice-stage__stats {
+  display: flex;
+  gap: var(--space-5);
+  font-size: 12px;
+  color: var(--ink-dim);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+  width: 100%;
+  justify-content: center;
+}
+
+.practice-stage__stat-value {
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.practice-stage__stop {
+  background: none;
+  border: none;
+  color: var(--ink-dim);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  margin-top: var(--space-2);
+}
+
+.practice-stage__stop:hover {
+  color: var(--ink);
+}
